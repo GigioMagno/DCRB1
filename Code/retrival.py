@@ -33,6 +33,7 @@ def connect_db(host, user, pwd, db, auth):
     return db_connection
 
 
+
 ######### Search into the content of the file and into the nam field of the file ############
 # The parameter "keyword" is the word to retrieve inside the Txt field (html) 
 # and inside the name field
@@ -58,6 +59,7 @@ def search_query(db_reference, keyword):
             """
     db_reference.execute(query)
     return db_reference
+
 
 
 ###################### Process the results of the DB and print them #########################
@@ -86,7 +88,6 @@ def search_name_and_occurrences(db_connection, keyword, batch_size):
             print('%d\t%s\t%s\t%d' % (_list_[0], _list_[1], _list_[2], _list_[3]), file=file_out)
     file_out.close()
     db_reference.close()
-    #query che ritorna il le tuple che hanno occorrenza nel nome
 
 
 
