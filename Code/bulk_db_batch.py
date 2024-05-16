@@ -37,7 +37,7 @@ def connect_db(host, user, pwd, db, auth):
     return db_conn
 
 
-
+####################### THIS PART CONTAINS THE SCHEMA OF THE DB IN MYSQL DDL ########################
 ############################## Definition and creation of the tables ################################
 # Drop of the constraint on foreign key, drop of the tables if they exist yet
 # Setting of the charset for each table
