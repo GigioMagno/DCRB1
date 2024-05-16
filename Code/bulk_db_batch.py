@@ -62,7 +62,7 @@ def create_tables(db_connection, maxsize):
     """)
     db_reference.execute("SET NAMES 'UTF8MB4'")
     db_reference.execute("SET CHARACTER SET UTF8MB4")
-    db_connection.commit() #specify the type of transaction, in this wa i'm using autocommit mode of mysql.
+    db_connection.commit()
 
 
 
