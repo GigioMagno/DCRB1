@@ -17,9 +17,7 @@
 ################# Libraries ####################
 ################################################
 import os
-import csv
 import datetime
-import re
 import mysql.connector
 
 
@@ -159,6 +157,7 @@ def check_and_submit(batch, MAX_BATCH_SIZE, db_reference):
 
 def populate_db(startpath, db_connection, MAX_BATCH_SIZE):
     batch = []
+    supported_formats = ["html"]
     db_reference = db_connection.cursor()
     for root, dirs, files in os.walk(startpath):
         for file in files:
@@ -166,11 +165,12 @@ def populate_db(startpath, db_connection, MAX_BATCH_SIZE):
                 try:
                     file_path = os.path.join(root, file)
                     file_size, file_name, extension, creation_time, last_modified_time = _stats_(file_path)
+                    #print(file_size, file_name, extension, creation_time, last_modified_time)
                     txt = ""
-                    if extension == "html":
+                    if extension in supported_formats:
                         with open(file_path, 'r', encoding='utf-8') as file:
                             txt = str(file.read()).lower()
-                            batch.append((file_name, file_path, file_size, "html", creation_time, last_modified_time, txt))
+                            batch.append((file_name, file_path, file_size, extension, creation_time, last_modified_time, txt))
                     else:
                         batch.append((file_name, file_path, file_size, "File", creation_time, last_modified_time, None))
                     batch = check_and_submit(batch, MAX_BATCH_SIZE, db_reference)
@@ -201,6 +201,6 @@ def populate_db(startpath, db_connection, MAX_BATCH_SIZE):
 db_connection = connect_db("localhost", "root", "GCLVTI99P27F061Y", "DCR", "mysql_native_password")
 create_tables(db_connection, os.pathconf('/', os.pathconf_names['PC_PATH_MAX']))
 MAX_BATCH_SIZE = 10
-populate_db('/Users/svitol/Desktop/Unipv/', db_connection, MAX_BATCH_SIZE)
+populate_db('/', db_connection, MAX_BATCH_SIZE)
 create_index(db_connection)
 db_connection.close()
