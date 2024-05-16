@@ -37,7 +37,7 @@ def connect_db(host, user, pwd, db, auth):
     return db_conn
 
 
-####################### THIS PART CONTAINS THE SCHEMA OF THE DB IN MYSQL DDL ########################
+
 ############################## Definition and creation of the tables ################################
 # Drop of the constraint on foreign key, drop of the tables if they exist yet
 # Setting of the charset for each table
@@ -119,8 +119,8 @@ def remove_char_from_string(string):
 
 def _stats_(path):
     file_size = os.stat(path).st_size
-    file_name = remove_char_from_string(path.split("/")[-1])
-    extension = path.split(".")[-1]
+    file_name = remove_char_from_string(path.split("/")[-1]).lower()
+    extension = path.split(".")[-1].lower()
     creation_time = datetime.datetime.fromtimestamp(os.path.getctime(path)).strftime('%Y-%m-%d %H:%M:%S')
     last_modified_time = datetime.datetime.fromtimestamp(os.path.getmtime(path)).strftime('%Y-%m-%d %H:%M:%S')
     return file_size, file_name, extension, creation_time, last_modified_time
@@ -155,6 +155,7 @@ def check_and_submit(batch, MAX_BATCH_SIZE, db_reference):
 # the data structures become too big (In the case without batch)
 # Thanks to the batch insertion a constant quantitative of ram is allocated
 # This parameter is fixed inside the code
+# A future update may provide to read the size of the batch from command line
 ####################################################################################################
 
 def populate_db(startpath, db_connection, MAX_BATCH_SIZE):
@@ -166,14 +167,14 @@ def populate_db(startpath, db_connection, MAX_BATCH_SIZE):
                 try:
                     file_path = os.path.join(root, file)
                     file_size, file_name, extension, creation_time, last_modified_time = _stats_(file_path)
-                    print(file_size, file_name, extension, creation_time, last_modified_time)
+                    #print(file_size, file_name, extension, creation_time, last_modified_time)
                     txt = ""
                     if extension == "html":
                         with open(file_path, 'r', encoding='utf-8') as file:
-                            txt = str(file.read())
-                            batch.append((file_name, file_path, file_size, extension, creation_time, last_modified_time, txt))
+                            txt = str(file.read()).lower()
+                            batch.append((file_name, file_path, file_size, "html", creation_time, last_modified_time, txt))
                     else:
-                        batch.append((file_name, file_path, file_size, extension, creation_time, last_modified_time, None))
+                        batch.append((file_name, file_path, file_size, "File", creation_time, last_modified_time, None))
                     batch = check_and_submit(batch, MAX_BATCH_SIZE, db_reference)
                 except Exception as e:
                     continue
@@ -199,9 +200,11 @@ def populate_db(startpath, db_connection, MAX_BATCH_SIZE):
 # Use "\" otherwise
 #####################################################################################################
 
-db_connection = connect_db("localhost", "root", "your_db_password", "DCR", "mysql_native_password")
+db_connection = connect_db("localhost", "root", "GCLVTI99P27F061Y", "DCR", "mysql_native_password")
 create_tables(db_connection, os.pathconf('/', os.pathconf_names['PC_PATH_MAX']))
 MAX_BATCH_SIZE = 10
-populate_db('/', db_connection, MAX_BATCH_SIZE)
+populate_db('/Users/svitol/Desktop/Unipv/', db_connection, MAX_BATCH_SIZE)
 create_index(db_connection)
 db_connection.close()
+
+#implementare batch per transaction
