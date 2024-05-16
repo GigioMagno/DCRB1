@@ -46,7 +46,6 @@ def connect_db(host, user, pwd, db, auth):
 
 def create_tables(db_connection, maxsize):
     db_reference = db_connection.cursor()
-    db_reference.execute("SET FOREIGN_KEY_CHECKS = 0")
     db_reference.execute("DROP TABLE IF EXISTS file_info")
     db_reference.execute("""
         CREATE TABLE file_info (
