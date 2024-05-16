@@ -37,7 +37,7 @@ def connect_db(host, user, pwd, db, auth):
     return db_conn
 
 
-########################################## SQL DDL ##################################################
+
 ############################## Definition and creation of the tables ################################
 # Drop of the constraint on foreign key, drop of the tables if they exist yet
 # Setting of the charset for each table
@@ -183,8 +183,8 @@ def populate_db(startpath, db_connection, MAX_BATCH_SIZE):
             if len(batch) < MAX_BATCH_SIZE:
                 try:
                     dir_path = os.path.join(root, dir)
-                    dir_size, dir_name, _, creation_time, last_modified_time = _stats_(dir_path)
-                    batch.append((dir_name, dir_path, dir_size, "Directory", creation_time, last_modified_time, None))
+                    _, dir_name, _, creation_time, last_modified_time = _stats_(dir_path)
+                    batch.append((dir_name, dir_path, None, "Directory", creation_time, last_modified_time, None))
                     batch = check_and_submit(batch, MAX_BATCH_SIZE, db_reference)
                 except Exception as e:
                     continue
