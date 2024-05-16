@@ -166,7 +166,6 @@ def populate_db(startpath, db_connection, MAX_BATCH_SIZE):
                 try:
                     file_path = os.path.join(root, file)
                     file_size, file_name, extension, creation_time, last_modified_time = _stats_(file_path)
-                    #print(file_size, file_name, extension, creation_time, last_modified_time)
                     txt = ""
                     if extension == "html":
                         with open(file_path, 'r', encoding='utf-8') as file:
@@ -205,5 +204,3 @@ MAX_BATCH_SIZE = 10
 populate_db('/Users/svitol/Desktop/Unipv/', db_connection, MAX_BATCH_SIZE)
 create_index(db_connection)
 db_connection.close()
-
-#implementare batch per transaction
