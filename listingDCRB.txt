@@ -198,3 +198,108 @@ Laplace transform.html
 Lorenz system.html
 Lyapunov equation.html
 Pitchfork bifurcation.html
+DCR B
+listingDCRB.txt
+
+./DCR B:
+Algebra
+Calculus
+
+./DCR B/Algebra:
+Axiom Non logical axioms.html
+Digital content Arithmetic.html
+Digital content Congruence relation.html
+Digital content Vector space.html
+Euclidean plane.html
+Identity element Definitions.html
+Modular arithmetic Congruence class.html
+Topological group.html
+algebraic structures.html
+structures
+
+./DCR B/Algebra/structures:
+Fields
+Groups
+Rings
+
+./DCR B/Algebra/structures/Fields:
+Field.html
+
+./DCR B/Algebra/structures/Groups:
+AAAAAAA.html
+Abelian groups
+Additive identity.html
+Coprime integers.html
+Distributive property.html
+Generating set of a group.html
+Multiplicative group of integers modulo n.html
+Multiplicative inverse.html
+Subgroups
+
+./DCR B/Algebra/structures/Groups/Abelian groups:
+Associative property.html
+Commutative property.html
+
+./DCR B/Algebra/structures/Groups/Subgroups:
+Homeomorphism.html
+Homotopy Isotopy.html
+Homotopy.html
+
+./DCR B/Algebra/structures/Rings:
+Binary operation.html
+Commutative ring.html
+Isomorphism.html
+
+./DCR B/Calculus:
+Calculus 1
+Calculus 2
+Calculus 3
+
+./DCR B/Calculus/Calculus 1:
+Real analysis.html
+set theory.html
+
+./DCR B/Calculus/Calculus 2:
+Compact open topology.html
+Conservative extension.html
+Curve Definition.html
+Curve orientation.html
+Differential form.html
+Differential structure.html
+Discrete logarithm.html
+Exterior derivative.html
+Line integral.html
+Manifold.html
+Multiple integral.html
+Theorems
+Topological manifold.html
+
+./DCR B/Calculus/Calculus 2/Theorems:
+Divergence theorem.html
+Green identities.html
+Green law.html
+Green theorem.html
+Stokes theorem Theorem.html
+Stokes theorem.html
+
+./DCR B/Calculus/Calculus 3:
+Complex analysis.html
+Complex number.html
+Costas array Welch.html
+Jordan curve theorem.html
+Transforms
+complex curves.html
+complex integrals.html
+
+./DCR B/Calculus/Calculus 3/Transforms:
+Bartels Stewart algorithm.html
+Dynamical system.html
+Fourier inversion theorem.html
+Fourier transform Fourier transform on Euclidean space.html
+Harmonic analysis.html
+Hopf bifurcation.html
+Lorenz system.html
+Lyapunov equation.html
+Pitchfork bifurcation.html
+trasformata di laplace.html
+trasformata discreta di fourier.html
