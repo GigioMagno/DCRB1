@@ -13,4 +13,4 @@
 * The program implement a functionality to load the database in batches. The size of the batch is chosen tuning the parameter ```MAX_BATCH_SIZE```. This implementation avoid to saturate the RAM.
 * The functions ```executemany()``` and ```commit()``` are used to insert ```MAX_BATCH_SIZE``` tuples into the database for each commit instead to insert a single tuple and commit just a single insert.
 ## Necessary libraries
-* To run the search facility the ```mysql connector``` library is necessary. It's possible to install the driver using the command ```pip(3) install mysql-connector-python```
+* To run the bulk script and the search facility the ```mysql connector``` library is necessary. It's possible to install the driver using the command ```pip(3) install mysql-connector-python```
