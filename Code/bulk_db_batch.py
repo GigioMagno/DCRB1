@@ -37,7 +37,7 @@ def connect_db(host, user, pwd, db, auth):
 
 ########################################### SQL DDL #################################################
 ############################## Definition and creation of the tables ################################
-# Drop of the tables if they exist yet
+# Drop off the tables if they exist yet
 # Setting of the charset for each table
 # Commit
 #####################################################################################################
