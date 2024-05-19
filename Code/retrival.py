@@ -52,7 +52,7 @@ def search_query(db_reference, keyword):
               UNION 
     
                   SELECT ID, 0 AS count
-                  FROM file_info
+                  FROM file_info FORCE INDEX (idx_name)
                   WHERE Name LIKE \"%"""+str(keyword)+"""%\") AS B) AS C 
             NATURAL JOIN file_info
             GROUP BY file_info.ID, file_info.NAME
