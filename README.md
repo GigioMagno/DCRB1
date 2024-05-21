@@ -12,5 +12,6 @@
 * The program is able to index all the files in the filesystem. It's necessary change the path (first parameter) of the function ```populate_db()``` of the script bulk_db_batch.py
 * The program implement a functionality to load the database in batches. The size of the batch is chosen tuning the parameter ```MAX_BATCH_SIZE```. This implementation avoid to saturate the RAM.
 * The functions ```executemany()``` and ```commit()``` are used to insert ```MAX_BATCH_SIZE``` tuples into the database for each commit instead to insert a single tuple and commit just a single insert.
+* The retrieval is $\textbf{case insensitive}$
 ## Necessary libraries
 * To run the bulk script and the search facility the ```mysql connector``` library is necessary. It's possible to install the driver using the command ```pip(3) install mysql-connector-python```
