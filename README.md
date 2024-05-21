@@ -1,4 +1,4 @@
-# DCRB1
+# Please, read the report named  ```Digital_Content_Retrieval_B_part_1.pdf```. The raw content is available in the directory "snapshots".
 - The schema of the database ```(SQL DDL)``` is contained inside the file ```bulk_db_batch.py``` immediately after the function ```connect_db()```.
 - The script to build the schema, the table and load the table is ```bulk_db_batch```.
 - The script of the search engine is ```retrival.py```.
